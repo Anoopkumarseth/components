@@ -1,0 +1,96 @@
+/* optional code
+-----------------*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Open Sans", sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.5;
+}
+
+body {
+    height: calc(100vh + 10px);
+}
+
+.page-heading {
+    text-align: center;
+    margin: 20px auto;
+    font-size: larger;
+    font-size: clamp(1rem, 3vw, 2rem);
+}
+h2.page-heading {
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 20px;
+    width: 50%;
+}
+
+/* optional code End
+---------------------*/
+:root {
+    --arrow-icon: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iIzAwMDAwMCI+PHBhdGggZD0iTTI0IDI0SDBWMGgyNHYyNHoiIGZpbGw9Im5vbmUiIG9wYWNpdHk9Ii44NyIvPjxwYXRoIGQ9Ik0xNi41OSA4LjU5TDEyIDEzLjE3IDcuNDEgOC41OSA2IDEwbDYgNiA2LTYtMS40MS0xLjQxeiIvPjwvc3ZnPg==) center center no-repeat;
+    --padding-r: 15px;
+    --padding-l: 15px;
+}
+
+.container {
+    max-width: 1240px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;    
+}
+
+%col-padding {
+    padding-right: var(--padding-r);
+    padding-left: var(--padding-l);
+}
+
+.col-2 {
+    width: 16.222222%;
+    flex: 0 0 16.222222%;
+    @extend %col-padding;
+}
+.col-3 {
+    width: 25%;
+    flex: 0 0 25%;
+    @extend %col-padding;
+}
+.col-4 {
+    width: 33.333333%;
+    flex: 0 0 33.333333%;
+    @extend %col-padding;
+}
+
+%beforeIcon {
+    position: absolute;
+    display: block;
+    content: "";
+    height: 100%;
+    width: 50px;
+    background: var(--arrow-icon);
+    top: 0;
+    right: 0;
+}
+
+
+@media screen and (max-width: 767px) {
+    .row{
+        flex-direction: column;
+    }
+    .col-3{
+        width: 100%;
+    }
+}

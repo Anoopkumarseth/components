@@ -1,0 +1,37 @@
+/* accordion
+--------------*/
+.accordion {
+    padding: 15px 0;
+    &-item {
+        border: 1px solid #eee;
+        margin-bottom: -1px;
+    }
+    &-header,
+    &-content {
+        padding: 15px;
+    }
+    &-header {
+        cursor: pointer;
+        font-size: 16px;
+        position: relative;
+        padding-right: 50px;
+        &::after {
+            @extend %beforeIcon;
+        }
+        &.active {
+            background: $bg;
+            border-bottom: 1px solid $bdr;
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &-content {
+        display: none;
+        font-size: 14px;
+    }
+    &.sub-accordion {
+        padding: 0;
+        margin-bottom: 15px;
+    }
+}

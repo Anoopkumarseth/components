@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>    
+    <nav class="menubar">
+        <div class="container">
+            <a href="#" class="menubar-logo">
+                <!-- <img src="https://pngimg.com/uploads/google/google_PNG19631.png" alt="logo" /> -->
+                Menubar
+            </a>
+            <button class="menubar-toggle">
+               <span></span>
+               <span></span>
+               <span></span>
+            </button>
+            <ul class="menubar-menu">
+                <li class="menubar-item">
+                    <a href="menu.html" class="menubar-link">Home</a>                    
+                </li>
+                <li class="menubar-item">
+                    <a href="accordion.html" class="menubar-link">Accordion</a>                    
+                </li>
+                <li class="menubar-item">
+                    <a href="#" class="menubar-link">About</a>                    
+                </li>
+                <li class="menubar-item dropdown">
+                    <a href="#" class="menubar-link">Dropdown</a>
+                    <ul class="menubar-sub-menu">
+                        <li class="menubar-sub-item"><a href="#" class="menubar-sub-link">item</a></li>
+                        <li class="menubar-sub-item"><a href="#" class="menubar-sub-link">item item</a></li>
+                        <li class="menubar-sub-item"><a href="#" class="menubar-sub-link">Item item item</a></li>
+                        <li class="menubar-sub-item"><a href="#" class="menubar-sub-link">Item item item item</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        (function ($) {
+            $(".menubar-toggle").click(function(){
+                $(this).toggleClass("active")
+                $(".menubar-menu").slideToggle()                
+            })
+            $(".dropdown").click(function(e){
+                e.preventDefault()
+                $(this).toggleClass("active")
+                $(this).find(".menubar-sub-menu").slideToggle()
+                $(this).siblings(".dropdown").children(".menubar-sub-menu").slideUp()    
+                $(this).siblings(".dropdown").removeClass('active')                
+            })
+
+        })(jQuery);
+    </script>
+</body>
+
+</html>

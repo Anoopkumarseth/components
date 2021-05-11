@@ -1,0 +1,173 @@
+/*Menubar
+----------*/
+.menubar {
+    .container {
+        @extend .jsb-flex-ac;
+        padding: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    background: $bg;
+    &-menu {
+        @extend .jsb-flex-ac;
+    }
+    &-toggle {
+        height: 35px;
+        width: 35px;
+        border: 0;
+        margin-right: 15px;
+        padding: 7px 5px;
+        @extend .jsb-flex-ac;
+        display: none;
+        position: relative;
+        span {
+            height: 2px;
+            width: 100%;
+            background: #aaa;
+            display: block;
+            transition: all ease 0.3s;
+        }
+        &.active span {
+            position: absolute;
+            top: 50%;
+            width: 85%;
+            transition: all ease 0.3s;
+            &:first-child {
+                transform: rotate(45deg);
+            }
+            &:last-child {
+                transform: rotate(-45deg);
+            }
+            &:nth-child(2) {
+                margin-right: -50px;
+                opacity: 0;
+            }
+        }
+    }
+    &-link,
+    &-logo {
+        padding: 15px 30px;
+        display: block;
+        color: #555;
+        &:hover {
+            color: #222;
+        }
+    }
+    &-logo {
+        padding: 5px;
+        @extend .flex;
+    }
+    &-logo img {
+        max-height: 50px;
+    }
+
+    // For Submenu
+    &-sub-link {
+        @extend .menubar-link;
+        white-space: nowrap;
+    }
+    &-sub-menu {
+        position: absolute;
+        background: #fff;
+        left: 0;
+        top: calc(100%);
+        box-shadow: 0 0 2px rgba($txt, 0.2);
+        z-index: 1;
+        display: none;
+        max-height: 40vh;
+        overflow-y: auto;
+    }
+    &-item,
+    &-link {
+        position: relative;
+    }
+
+    &-sub-item {
+        &:last-child .menubar-sub-link {
+            border-bottom: 0;
+        }
+    }
+
+    &-sub-link {
+        border-bottom: 1px solid $bdr;
+    }
+
+    .dropdown {
+        > .menubar-link {
+            &::after {
+                @extend %beforeIcon;
+                width: 30px;
+            }
+        }
+        &.active > .menubar-link {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    // For Megamenu
+    .mega-menu {
+        position: inherit;
+        .menubar-sub-menu {
+            width: 100%;
+        }
+    }
+
+    // Responsive Code
+
+    @media screen and (max-width: 767px) {
+        &-menu {
+            display: none;
+        }
+        &-toggle {
+            display: flex;
+        }
+        &-logo {
+            padding: 15px;
+        }
+        &-menu,
+        &-item {
+            width: 100%;
+            flex-basis: 100%;
+        }
+
+        &-item {
+            border-bottom: 1px solid $bdr;
+            background: #fff;
+        }
+
+        &-link {
+            padding: 15px;
+        }
+        // For Submenu
+        &-sub-menu {
+            position: relative;
+            box-shadow: none;
+            background: #f9f9f9;
+        }
+
+        .dropdown > .menubar-link {
+            &::after {
+                margin-right: 18px;
+            }
+        }
+
+        &-sub-link {
+            padding: 15px 30px;
+        }
+
+        // For Megamenu
+        .mega-menu {
+            .menubar-sub-menu {
+                max-height: 100%;
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        &-menu {
+            display: flex !important;
+        }
+    }
+}
