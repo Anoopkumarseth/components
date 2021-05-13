@@ -14,64 +14,44 @@
     <div class="tab">
       <ul class="tab-nav">
         <li class="tab-item">
-          <button class="tab-link">Home</button>
+          <button class="tab-link active" id="home">Home</button>
         </li>
         <li class="tab-item">
-          <button class="tab-link">profile</button>
+          <button class="tab-link" id="profile">profile</button>
         </li>
         <li class="tab-item">
-          <button class="tab-link">logo</button>
+          <button class="tab-link" id="logo">logo</button>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane show">
-          <p>text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-            containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-            including versions of Lorem Ipsum.</p>
-          <p>text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-            containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-            including versions of Lorem Ipsum.</p>
-          <p>text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-            specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-            containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-            including versions of Lorem Ipsum.</p>
+        <div class="tab-pane show" rel="home">
+          Home Content
         </div>
-        <div class="tab-pane">2</div>
-        <div class="tab-pane">3</div>
+        <div class="tab-pane" rel="profile">
+          Profile Content  
+        </div>
+        <div class="tab-pane" rel="logo">
+          Logo Content
+        </div>
       </div>
     </div>
   </div>
 
 
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
+    (function ($) {
+            $(".tab-nav .tab-link").click(function(){
+              $(this).addClass("active");
+              $(this).parents(".tab-item").siblings().find(".active").removeClass("active");
+              var elementName = $(this).attr("id");
+              console.log(elementName)
+              $(".tab-content .tab-pane").hide()
+              $(".tab-content .tab-pane[rel='"+ elementName +"']").show()
+            })
 
-    function tabToggler() {
-      var headingLenght = document.querySelectorAll(".tab-nav .tab-link");
-      // var itemIndex = 0;
-
-      for (i = 0; i < headingLenght.length; i++) {
-        headingLenght[i].onclick = function (index) {
-
-          this.classList.toggle("active");
-          
-
-          // let siblings = headingLenght.parentElement.children;
-          // for (let sib of siblings) {
-          //   sib.classList.remove('active')
-          // }
-
-        }
-      }
-
-
-    }
-    tabToggler()
+        })(jQuery);
+   
 
   </script>
 </body>
