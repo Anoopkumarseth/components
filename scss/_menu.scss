@@ -3,7 +3,6 @@
 .menubar {
     .container {
         @extend .jsb-flex-ac;
-        padding: 0;
         flex-direction: row;
         flex-wrap: wrap;
     }
@@ -78,6 +77,13 @@
         max-height: 40vh;
         overflow-y: auto;
     }
+    &-item {
+        &:last-child .menubar-sub-menu {
+            right: 0;
+            left: auto;
+        }
+    }
+
     &-item,
     &-link {
         position: relative;

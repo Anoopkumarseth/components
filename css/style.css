@@ -161,7 +161,6 @@ h2.page-heading {
 }
 
 .menubar .container {
-  padding: 0;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -237,6 +236,11 @@ h2.page-heading {
   display: none;
   max-height: 40vh;
   overflow-y: auto;
+}
+
+.menubar-item:last-child .menubar-sub-menu {
+  right: 0;
+  left: auto;
 }
 
 .menubar-item, .menubar-link, .menubar-sub-link {
