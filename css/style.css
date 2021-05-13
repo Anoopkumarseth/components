@@ -272,6 +272,9 @@ h2.page-heading {
 }
 
 @media screen and (max-width: 767px) {
+  .menubar .container {
+    padding: 0;
+  }
   .menubar-menu {
     display: none;
   }

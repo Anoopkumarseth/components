@@ -124,6 +124,9 @@
     // Responsive Code
 
     @media screen and (max-width: 767px) {
+        .container{
+            padding: 0;
+        }
         &-menu {
             display: none;
         }
