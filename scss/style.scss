@@ -4,3 +4,38 @@
 @import "accordion";
 @import "menu";
 @import 'footer';
+
+.tab{
+    padding: 15px;
+    &-nav{
+        @extend .flex;
+    }
+    &-link{
+        border: 0;
+        padding: 15px 30px;
+        color: $txt;
+        white-space: nowrap;
+        background: lighten($bg, 03); 
+        cursor: pointer;  
+        &.active{
+            background: $bg;
+        }      
+    }
+
+    &-content{
+        border: 1px solid $bdr;
+        padding: 15px;
+    }
+    &-content, &-link{
+        margin: 0 5px;
+    }
+
+    &-pane{
+        display: none;
+        &.show{
+            display: block;
+        }
+    }
+
+
+}
