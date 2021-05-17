@@ -1,11 +1,13 @@
 .flex{
     display: flex;
 }
-
+.flex-ac{
+    align-items: center;
+}
 .jsb-flex-ac {
     @extend .flex;
-    justify-content: space-between;
-    align-items: center;
+    @extend .flex-ac;
+    justify-content: space-between;    
 }
 @media screen and (max-width: 767px) {
     .jsb-flex-ac {

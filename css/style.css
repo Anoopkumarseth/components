@@ -10,14 +10,14 @@
   outline: 0;
   text-decoration: none;
   list-style: none;
-  font-family: "Open Sans", sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: transparent;
-  line-height: 1.5;
 }
 
 body {
   height: calc(100vh + 10px);
+  font-family: "Open Sans", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
 }
 
 p {
@@ -53,7 +53,7 @@ h2.page-heading {
   position: relative;
 }
 
-.row {
+.row, .tab-nav {
   display: flex;
   flex-wrap: wrap;
 }
@@ -90,7 +90,7 @@ h2.page-heading {
 }
 
 @media screen and (max-width: 767px) {
-  .row {
+  .row, .tab-nav {
     flex-direction: column;
   }
   .col-3 {
@@ -98,17 +98,20 @@ h2.page-heading {
   }
 }
 
-.flex, .jsb-flex-ac, .menubar .container, .menubar-menu, .menubar-toggle, .menubar-logo, .tab-nav {
+.flex, .jsb-flex-ac, .menubar .container, .menubar-menu, .menubar-toggle, .modal-header, .modal-footer, .menubar-logo {
   display: flex;
 }
 
-.jsb-flex-ac, .menubar .container, .menubar-menu, .menubar-toggle {
-  justify-content: space-between;
+.flex-ac, .jsb-flex-ac, .menubar .container, .menubar-menu, .menubar-toggle, .modal-header, .modal-footer {
   align-items: center;
 }
 
+.jsb-flex-ac, .menubar .container, .menubar-menu, .menubar-toggle, .modal-header, .modal-footer {
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 767px) {
-  .jsb-flex-ac, .menubar .container, .menubar-menu, .menubar-toggle {
+  .jsb-flex-ac, .menubar .container, .menubar-menu, .menubar-toggle, .modal-header, .modal-footer {
     flex-direction: column;
   }
 }
@@ -358,7 +361,7 @@ h2.page-heading {
   .footer {
     padding: 15px 0 0;
   }
-  .footer .row {
+  .footer .row, .footer .tab-nav {
     flex-direction: column;
   }
   .footer .col-3 {
@@ -379,8 +382,13 @@ h2.page-heading {
   }
 }
 
+/*tabs*/
 .tab {
   padding: 15px;
+}
+
+.tab-nav {
+  overflow-x: auto;
 }
 
 .tab-link {
@@ -401,8 +409,8 @@ h2.page-heading {
   padding: 15px;
 }
 
-.tab-content, .tab-link {
-  margin: 0 5px;
+.tab-content, .tab-item {
+  margin: 5px;
 }
 
 .tab-pane {
@@ -411,5 +419,83 @@ h2.page-heading {
 
 .tab-pane.show {
   display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .tab-nav {
+    flex-direction: row;
+  }
+}
+
+/*Buttons*/
+.btn, .btn-icon {
+  background: #f1f1f1;
+  white-space: nowrap;
+  padding: 15px 30px;
+  color: #333;
+  border: thin solid #f1f1f1;
+  user-select: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  margin: 5px 15px;
+}
+
+.btn:hover, .btn-icon:hover {
+  background: #e4e4e4;
+  border: thin solid #d8d8d8;
+}
+
+.btn-icon {
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  background: none !important;
+  border: none !important;
+}
+
+.modal {
+  z-index: 10;
+}
+
+.modal-backdrop {
+  background: #000;
+  opacity: 0.5;
+}
+
+.modal-header {
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header, .modal-body, .modal-footer {
+  padding: 15px 30px;
+}
+
+.modal-dialog {
+  max-width: 500px;
+  margin: 1.75rem auto;
+  position: relative;
+  width: auto;
+  background: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 11;
+}
+
+.modal-footer {
+  border-top: 1px solid #f1f1f1;
+}
+
+.modal-footer .btn, .modal-footer .btn-icon {
+  margin: 0;
+}
+
+.modal,
+.modal-backdrop {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

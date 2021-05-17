@@ -1,0 +1,43 @@
+/*tabs*/
+.tab {
+    padding: 15px;
+    &-nav {
+        @extend .row;
+        overflow-x: auto;
+    }
+    &-link {
+        border: 0;
+        padding: 15px 30px;
+        color: $txt;
+        white-space: nowrap;
+        background: lighten($bg, 03);
+        cursor: pointer;
+        &.active {
+            background: $bg;
+        }
+    }
+
+    &-pane {
+        border: 1px solid $bdr;
+        padding: 15px;
+    }
+    &-content,
+    &-item {
+        margin:5px;
+    }
+
+
+
+    &-pane {
+        display: none;
+        &.show {
+            display: block;
+        }
+    }
+
+    @media screen and (max-width:767px){
+        &-nav{
+            flex-direction: row;
+        }
+    }
+}

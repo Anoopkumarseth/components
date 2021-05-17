@@ -3,39 +3,77 @@
 @import "flex";
 @import "accordion";
 @import "menu";
-@import 'footer';
-
-.tab{
-    padding: 15px;
-    &-nav{
-        @extend .flex;
+@import "footer";
+@import "tabs";
+/*Buttons*/
+.btn {
+    background: $bg;
+    white-space: nowrap;
+    padding: 15px 30px;
+    color: $txt;
+    border: thin solid $bg;
+    user-select: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+    margin: 5px 15px;
+    &:hover {
+        background: darken($bg, 05);
+        border: thin solid darken($bg, 10);
     }
-    &-link{
-        border: 0;
+    &-icon {
+        @extend .btn;
+        margin: 0;
+        padding: 0;
+        height: 30px;
+        width: 30px;
+        background: none !important;
+        border: none !important;
+    }
+}
+
+.modal {
+    z-index: 10;
+    &-backdrop {
+        background: #000;
+        opacity: 0.5;
+    }
+
+    &-header {
+        @extend .jsb-flex-ac;
+        box-shadow: 1px 2px 5px rgba(#000, 0.2);
+    }
+
+    &-header,
+    &-body,
+    &-footer {
         padding: 15px 30px;
-        color: $txt;
-        white-space: nowrap;
-        background: lighten($bg, 03); 
-        cursor: pointer;  
-        &.active{
-            background: $bg;
-        }      
     }
 
-    &-pane{
-        border: 1px solid $bdr;
-        padding: 15px;
-    }
-    &-content, &-link{
-        margin: 0 5px;
+    &-dialog {
+        max-width: 500px;
+        margin: 1.75rem auto;
+        position: relative;
+        width: auto;
+        background: #fff;
+        box-shadow: 2px 2px 5px rgba(#000, 0.2);
+        z-index: 11;
     }
 
-    &-pane{
-        display: none;
-        &.show{
-            display: block;
+    &-footer {
+        @extend .jsb-flex-ac;
+        border-top: 1px solid $bdr;
+        .btn {
+            margin: 0;
         }
     }
+}
 
-
+.modal,
+.modal-backdrop {
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
 }

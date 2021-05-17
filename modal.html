@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="spacer" style="height: 50px;"></div>
+    <!-- Button trigger modal -->
+    <button class="btn btn-modal" id="modal1" role="button">
+      Launch demo modal
+    </button>
+
+  </div>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal" rel="modal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button class="btn-icon modal-close" type="button">X</button>
+        </div>
+        <div class="modal-body">
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn">Close</button>
+          <button type="button" class="btn">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    (function ($) {
+
+      function modalHandler() {
+        $(".btn-modal").click(function () {
+          var elementName = $(this).attr("id");
+          console.log(elementName)
+          $(".modal[rel='" + elementName + "']").show()
+          $("body").append('<div class="modal-backdrop"></div>');
+        })
+        $(".modal-close").click(function () {
+          $(".modal, .modal-backdrop").hide()
+          $(".modal-backdrop").remove()
+        })
+      }
+      modalHandler()
+
+    })(jQuery);
+
+
+  </script>
+  <div class="modal-backdrop"></div>
+</body>
+
+</html>
